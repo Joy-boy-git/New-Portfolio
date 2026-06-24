@@ -2,6 +2,7 @@ import { BrowserRouter } from 'react-router-dom'
 import './App.css'
 import NavBar from './NavBar'
 import Home from './Home'
+import About from './About'
 
 
 function App() {
@@ -12,7 +13,9 @@ function App() {
       <div className=' w-full h-auto ' style={{backgroundColor:'#00001a'}}>
           <BrowserRouter>
               <NavBar/>
+             
           </BrowserRouter>
+        
       </div>
 
       

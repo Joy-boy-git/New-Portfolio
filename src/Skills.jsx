@@ -4,11 +4,13 @@ import "aos/dist/aos.css";
 import { useEffect } from 'react'
 import Certificates from './Certificates';
 import Tech from './Tech';
+import Mech from './Mech';
 
 const Skills = () => {
 
   const [showCerti, setShowcerti] = useState(true);
   const [showTechnical, setShowTechnical] = useState(false);
+  const [showMech, setShowMech] = useState(false);
 
 
  useEffect(() => {
@@ -20,17 +22,25 @@ const Skills = () => {
     AOS.refresh();
   }, []);
 
+  function handleMechToggle() {
+    setShowMech((prev) => !prev);
+    // Optionally close the other panel
+    setShowTechnical(false);
+    setShowcerti(false);
+  }
 
   function handleCertificatesToggle() {
     setShowcerti((prev) => !prev);
     // Optionally close the other panel
     setShowTechnical(false);
+    setShowMech(false);
   }
 
   function handleTechToggle() {
     setShowTechnical((prev) => !prev);
     // Optionally close the other panel
     setShowcerti(false);
+    setShowMech(false);
   }
 
   return (
@@ -42,11 +52,15 @@ const Skills = () => {
       </div>
 
       {/* main */}
-      <div className= ' grid grid-cols-2 m-10 gap-10'>
+      <div className= ' grid grid-cols-3 m-10 gap-10'>
     
         {/* certifcates */}
         <button onClick={handleCertificatesToggle} className='md:m-20 text-pink-500 border h-10 text-center p-1 border-purple-500 hover:bg-violet-950 hover:scale-106' data-aos="zoom-in-up" data-aos-delay="300">
           Certificates
+        </button>
+
+         <button onClick={handleMechToggle} className='md:m-20 text-pink-500 border text-center p-1 h-10 border-purple-500 hover:bg-violet-950 hover:scale-106' data-aos="zoom-in-up" data-aos-delay="300">
+          Mech Stack
         </button>
 
         {/* skills */}
@@ -58,6 +72,7 @@ const Skills = () => {
       
   {showCerti && <Certificates />}
   {showTechnical && <Tech />}
+  {showMech && <Mech />}
 
     </div>
     </div>

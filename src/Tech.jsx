@@ -25,7 +25,6 @@ const Tech = () => {
 
   return (
     <div data-aos="zoom-in-up" className='grid grid-cols-3 gap-10 mb-20 p-20 md:grid-cols-4 md:p-30 justify-center items-center align-center md:w-250 h-auto md:h-150 md:ml-50 border border-violet-500 '>
-
         <div className='  w-20 md:w-30 flex-row justify-center p-4 items-center align-center border border-white rounded-lg backdrop-blur-sm bg-white/10' data-aos="zoom-in-up">
 
             <img src={html} data-aos="zoom-in-up" className='w-30 md:w-40' alt="" />
@@ -91,8 +90,9 @@ const Tech = () => {
 
         </div>
 
-
     </div>
+
+    
   )
 }
 
