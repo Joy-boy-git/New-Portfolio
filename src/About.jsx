@@ -4,7 +4,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from 'react';
 import img1 from './assets/berlinport.jpg'
-import resume from './assets/Berlin_SP_Resume.pdf'
+import resume from './assets/Resume Main.pdf'
 import certificate from './assets/quality.png'
 import experience from './assets/recommend.png'
 import Skills from './Skills';
@@ -40,7 +40,7 @@ const About = () => {
               I'm a Mechanical Engineering student and also passionate about web development and creating responsive web pages.
             </p>
             <button className='w-32 h-10 bg-pink-400 mt-8 rounded shadow hover:bg-pink-500 transition'>
-              <a href={resume} className='text-white text-lg font-semibold' download="Berlin_SP_Resume.pdf"data-aos-delay="300">Resume</a>
+              <a href={resume} className='text-white text-lg font-semibold' download="Resume Main.pdf"data-aos-delay="300">Resume</a>
             </button>
           </div>
         </div>
