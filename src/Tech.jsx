@@ -1,99 +1,122 @@
-import React from 'react'
-import html from './skill icons/html-5.png'
-import css from './skill icons/css-3.png'
-import bootstrap from './skill icons/bootstrap.png'
-import javascript from './skill icons/java-script.png'
-import python from './skill icons/python.png'
-import react from './skill icons/atom.png'
-import tailwind from './skill icons/tailwind.png'
-import sql from './skill icons/sql.png'
+import React, { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import { useEffect } from 'react'
+
+import html from "./skill icons/html-5.png";
+import css from "./skill icons/css-3.png";
+import bootstrap from "./skill icons/bootstrap.png";
+import javascript from "./skill icons/java-script.png";
+import python from "./skill icons/python.png";
+import react from "./skill icons/atom.png";
+import tailwind from "./skill icons/tailwind.png";
+import sql from "./skill icons/sql.png";
+
+const technologies = [
+  {
+    name: "HTML5",
+    image: html,
+    description:
+      "Semantic HTML5 for building accessible and SEO-friendly web pages.",
+  },
+  {
+    name: "CSS3",
+    image: css,
+    description:
+      "Modern CSS3 including Flexbox, Grid, animations, and responsive layouts.",
+  },
+  {
+    name: "Bootstrap",
+    image: bootstrap,
+    description:
+      "Bootstrap framework for responsive and mobile-first web development.",
+  },
+  {
+    name: "JavaScript",
+    image: javascript,
+    description:
+      "JavaScript ES6+ for interactive, dynamic, and modern web applications.",
+  },
+  {
+    name: "Python",
+    image: python,
+    description:
+      "Python programming for automation, backend development, and scripting.",
+  },
+  {
+    name: "React.js",
+    image: react,
+    description:
+      "React.js for building fast, reusable, and component-based user interfaces.",
+  },
+  {
+    name: "Tailwind CSS",
+    image: tailwind,
+    description:
+      "Tailwind CSS utility-first framework for creating modern responsive websites.",
+  },
+  {
+    name: "MySQL",
+    image: sql,
+    description:
+      "MySQL database for storing, managing, and querying relational data.",
+  },
+];
 
 const Tech = () => {
-
-    useEffect(() => {
-            AOS.init({
-              disable: "phone",
-              duration: 700,
-              easing: "ease-out-cubic",
-            });
-            AOS.refresh();
-          }, []);
-        
+  useEffect(() => {
+    AOS.init({
+      disable: "phone",
+      duration: 700,
+      easing: "ease-out-cubic",
+      once: true,
+    });
+  }, []);
 
   return (
-    <div data-aos="zoom-in-up" className='grid grid-cols-3 gap-10 mb-20 p-20 md:grid-cols-4 md:p-30 justify-center items-center align-center md:w-250 h-auto md:h-150 md:ml-50 border border-violet-500 '>
-        <div className='  w-20 md:w-30 flex-row justify-center p-4 items-center align-center border border-white rounded-lg backdrop-blur-sm bg-white/10' data-aos="zoom-in-up">
+    <section
+      className="bg-gray-950 border border-violet-500 p-8"
+      aria-labelledby="frontend-skills-heading"
+    >
+      <h2
+        id="frontend-skills-heading"
+        className="text-3xl md:text-4xl font-bold text-center text-purple-500 mb-4"
+      >
+        Frontend Development Skills
+      </h2>
 
-            <img src={html} data-aos="zoom-in-up" className='w-30 md:w-40' alt="" />
+      <p className="text-center text-gray-300 max-w-3xl mx-auto mb-10">
+        My frontend development skills include HTML5, CSS3, JavaScript,
+        React.js, Tailwind CSS, Bootstrap, Python, and MySQL. I use these
+        technologies to build responsive, accessible, and high-performance web
+        applications.
+      </p>
 
-            <p className='text-[12px] md:text-md text-cyan-300 text-center  ' data-aos="zoom-in-up">HTML</p>
+      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-8">
+        {technologies.map((tech) => (
+          <article
+            key={tech.name}
+            className="rounded-xl border border-white bg-white/10 p-6 text-center hover:scale-105 transition duration-300"
+            data-aos="zoom-in-up"
+          >
+            <img
+              src={tech.image}
+              alt={`${tech.name} logo`}
+              loading="lazy"
+              className="w-20 h-20 mx-auto object-contain"
+            />
 
-        </div>
+            <h3 className="mt-5 text-lg font-semibold text-cyan-300">
+              {tech.name}
+            </h3>
 
-        <div className='  w-20 md:w-30 flex-row justify-center p-4 items-center align-center border border-white rounded-lg backdrop-blur-sm bg-white/10' data-aos="zoom-in-up">
+            <p className="mt-3 text-sm text-gray-300 leading-6">
+              {tech.description}
+            </p>
+          </article>
+        ))}
+      </div>
+    </section>
+  );
+};
 
-        <img src={css} data-aos="zoom-in-up" className='w-20 md:w-30' alt="" />
-
-            <p className='text-[12px] md:text-md text-cyan-300 text-center  ' data-aos="zoom-in-up">CSS</p>
-
-        </div>
-
-        <div className='  w-20 md:w-30 flex-row justify-center p-4 items-center align-center border border-white rounded-lg backdrop-blur-sm bg-white/10' data-aos="zoom-in-up">
-
-            <img src={bootstrap} data-aos="zoom-in-up" className='w-20 md:w-30' alt="" />
-
-            <p className='text-[12px] md:text-md text-cyan-300 text-center  ' data-aos="zoom-in-up">BOOTSTRAP</p>
-
-        </div>
-
-        <div className='  w-20 md:w-30 flex-row justify-center p-4 items-center align-center border border-white rounded-lg backdrop-blur-sm bg-white/10' data-aos="zoom-in-up">
-
-            <img src={javascript} data-aos="zoom-in-up" className='w-20 md:w-30' alt="" />
-
-            <p className='text-[12px] md:text-md text-cyan-300 text-center  ' data-aos="zoom-in-up">JAVASCRIPT</p>
-
-        </div>
-
-        <div className='  w-20 md:w-30 flex-row justify-center p-4 items-center align-center border border-white rounded-lg backdrop-blur-sm bg-white/10' data-aos="zoom-in-up">
-
-            <img src={python} data-aos="zoom-in-up" className='w-20 md:w-30' alt="" />
-
-            <p className='text-[12px] md:text-md text-cyan-300 text-center  ' data-aos="zoom-in-up">PYTHON</p>
-
-        </div>
-
-        
-         <div className='  w-20 md:w-30 flex-row justify-center p-4 items-center align-center border border-white rounded-lg backdrop-blur-none bg-white/10' data-aos="zoom-in-up">
-
-            <img src={react} data-aos="zoom-in-up" className='w-20 md:w-30' alt="" />
-
-            <p className='text-[12px] md:text-md text-cyan-300 text-center  ' data-aos="zoom-in-up">REACT JS</p>
-
-        </div>
-
-         <div className='  w-20 md:w-30 flex-row justify-center p-4 items-center align-center border border-white rounded-lg backdrop-blur-none bg-white/10' data-aos="zoom-in-up">
-
-            <img src={tailwind} data-aos="zoom-in-up" className='w-20 md:w-30' alt="" />
-
-            <p className='text-[12px] md:text-md text-cyan-300 text-center  ' data-aos="zoom-in-up">TAILWIND </p>
-
-        </div>
-
-         <div className='  w-20 md:w-30 flex-row justify-center p-4 items-center align-center border border-white rounded-lg backdrop-blur-none bg-white/10' data-aos="zoom-in-up">
-
-            <img src={sql} data-aos="zoom-in-up" className='w-20 md:w-30' alt="" />
-
-            <p className='text-[12px] md:text-md text-cyan-300 text-center  ' data-aos="zoom-in-up">MY SQL</p>
-
-        </div>
-
-    </div>
-
-    
-  )
-}
-
-export default Tech
+export default Tech;
