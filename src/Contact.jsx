@@ -4,9 +4,9 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import emailjs from "@emailjs/browser";
 
-import insta from "./skill icons/instagram.png";
-import facebook from "./skill icons/facebook.png";
-import linkedin from "./skill icons/linkedin.png";
+import insta from "./assets/instagram.png";
+import linkedin from "./assets/linkedin.png";
+import whatsapp from "./assets/whatsapp.png"; // Add WhatsApp icon
 
 const Contact = () => {
   const formRef = useRef();
@@ -29,6 +29,12 @@ const Contact = () => {
 
     setStatus("sending");
 
+    const formData = new FormData(formRef.current);
+
+    const name = formData.get("from_name");
+    const email = formData.get("reply_to");
+    const message = formData.get("message");
+
     emailjs
       .sendForm(
         import.meta.env.VITE_EMAILJS_SERVICE_ID,
@@ -37,6 +43,21 @@ const Contact = () => {
       )
       .then(() => {
         setStatus("success");
+
+        const whatsappMessage = `Hello Berlin,
+
+Name: ${name}
+Email: ${email}
+
+Message:
+${message}`;
+
+        const whatsappURL = `https://wa.me/917639144640?text=${encodeURIComponent(
+          whatsappMessage
+        )}`;
+
+        window.open(whatsappURL, "_blank");
+
         formRef.current.reset();
       })
       .catch(() => {
@@ -59,15 +80,11 @@ const Contact = () => {
           content="Contact Berlin SP, React Developer, Frontend Developer, Portfolio Website, Web Designer, JavaScript, Tailwind CSS"
         />
 
-        <link
-          rel="canonical"
-          href="https://yourdomain.com/contact"
-        />
+        <link rel="canonical" href="https://yourdomain.com/contact" />
       </Helmet>
 
       <main className="min-h-screen bg-gray-950 border border-violet-500">
-
-        {/* Page Header */}
+        {/* Header */}
 
         <header className="text-center py-12">
           <h1
@@ -90,7 +107,6 @@ const Contact = () => {
 
         <section className="flex justify-center px-5 pb-20">
           <div className="w-full max-w-2xl rounded-xl border border-purple-500 bg-gray-950 shadow-lg">
-
             <form
               ref={formRef}
               onSubmit={handleSubmit}
@@ -145,8 +161,8 @@ const Contact = () => {
                 <textarea
                   id="message"
                   name="message"
-                  required
                   rows="6"
+                  required
                   placeholder="Tell me about your project..."
                   className="w-full rounded-xl border border-purple-500 bg-white/10 p-4 text-purple-300"
                 />
@@ -157,15 +173,10 @@ const Contact = () => {
                 disabled={status === "sending"}
                 className="rounded-xl border border-purple-500 py-3 text-purple-400 transition hover:bg-purple-500 hover:text-white disabled:opacity-50"
               >
-                {status === "sending"
-                  ? "Sending..."
-                  : "Send Message"}
+                {status === "sending" ? "Sending..." : "Send Message"}
               </button>
 
-              <div
-                aria-live="polite"
-                className="text-center"
-              >
+              <div className="text-center">
                 {status === "success" && (
                   <p className="text-green-400">
                     Thank you! Your message has been sent successfully.
@@ -187,8 +198,7 @@ const Contact = () => {
                 Connect with Me
               </h2>
 
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-5">
                 <a
                   href="https://www.instagram.com/_berlin_222_/?hl=en"
                   target="_blank"
@@ -197,31 +207,12 @@ const Contact = () => {
                 >
                   <img
                     src={insta}
-                    alt="Berlin S P Instagram Profile"
+                    alt="Instagram"
                     className="mx-auto w-10 h-10"
                   />
-
-                  <p className="mt-3 text-violet-500">
-                    Instagram
-                  </p>
+                  <p className="mt-3 text-violet-500">Instagram</p>
                 </a>
 
-                <a
-                  href="https://www.facebook.com/berlin.thorsp"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="rounded-lg border border-purple-500 p-5 hover:scale-105 transition text-center"
-                >
-                  <img
-                    src={facebook}
-                    alt="Berlin S P Facebook Profile"
-                    className="mx-auto w-10 h-10"
-                  />
-
-                  <p className="mt-3 text-violet-500">
-                    Facebook
-                  </p>
-                </a>
 
                 <a
                   href="https://www.linkedin.com/in/berlin-sp/"
@@ -231,21 +222,29 @@ const Contact = () => {
                 >
                   <img
                     src={linkedin}
-                    alt="Berlin S P LinkedIn Profile"
+                    alt="LinkedIn"
                     className="mx-auto w-10 h-10"
                   />
-
-                  <p className="mt-3 text-violet-500">
-                    LinkedIn
-                  </p>
+                  <p className="mt-3 text-violet-500">LinkedIn</p>
                 </a>
 
+                <a
+                  href="https://wa.me/917639144640"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="rounded-lg border border-purple-500 p-5 hover:scale-105 transition text-center"
+                >
+                  <img
+                    src={whatsapp}
+                    alt="WhatsApp"
+                    className="mx-auto w-10 h-10"
+                  />
+                  <p className="mt-3 text-violet-500">WhatsApp</p>
+                </a>
               </div>
             </section>
-
           </div>
         </section>
-
       </main>
     </>
   );
