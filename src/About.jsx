@@ -4,7 +4,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from 'react';
 import img1 from './assets/berlinport.jpg'
-import resume from './assets/Resume Main.pdf'
+import resume from './assets/BERLIN S P infaworx.pdf'
 import certificate from './assets/quality.png'
 import experience from './assets/recommend.png'
 import Skills from './Skills';
@@ -25,16 +25,16 @@ const About = () => {
   return (
     <>
       <Helmet>
-        <title>About Berlin S P | React Developer Portfolio</title>
+        <title>About Berlin S P | FullStack Developer Portfolio</title>
 
         <meta
           name="description"
-          content="Learn more about Berlin S P, a Mechanical Engineering graduate and Front-End React Developer specializing in React.js, Tailwind CSS, JavaScript, responsive web design, and modern UI development."
+          content="Learn more about Berlin S P, a Mechanical Engineering graduate and FullStack Developer specializing in React.js, Tailwind CSS, JavaScript, SQL, responsive web design, and modern UI development."
         />
 
         <meta
           name="keywords"
-          content="Berlin SP, React Developer, Frontend Developer, Mechanical Engineer, Portfolio, JavaScript, Tailwind CSS"
+          content="Berlin SP, React Developer, Frontend Developer, Mechanical Engineer, Portfolio, JavaScript, Tailwind CSS, SQL"
         />
 
         <link
@@ -62,7 +62,7 @@ const About = () => {
           className="mt-5 max-w-3xl mx-auto text-gray-300 text-lg"
         >
           Mechanical Engineering graduate and Front-End Web Developer
-          specializing in React.js, Tailwind CSS, JavaScript, responsive web
+          specializing in React.js, Tailwind CSS, JavaScript, SQL, responsive web
           design, and modern user interface development.
         </p>
       </header>
@@ -72,7 +72,7 @@ const About = () => {
         <article className="flex-1 flex flex-col items-center text-center">
           <img
             src={img1}
-            alt="Berlin S P - Mechanical Engineer and React Developer"
+            alt="Berlin S P - Mechanical Engineer and FullStack Developer"
             loading="lazy"
             data-aos="flip-right"
             className="w-40 h-40 md:w-56 md:h-56 lg:w-64 lg:h-64 rounded-full border-2 border-pink-500 shadow-xl shadow-pink-500 object-cover"
@@ -93,7 +93,7 @@ const About = () => {
           >
             I am a Mechanical Engineering graduate passionate about Front-End
             Development. I build responsive, fast, and modern websites using
-            React.js, Tailwind CSS, JavaScript, HTML, and CSS. My goal is to
+            React.js, Tailwind CSS, JavaScript, SQL, HTML, and CSS. My goal is to
             create user-friendly digital experiences with smooth animations and
             clean UI designs.
           </p>

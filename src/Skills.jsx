@@ -102,7 +102,7 @@ const Skills = () => {
                 : "border-purple-500 text-pink-500 hover:bg-violet-950"
             }`}
           >
-            Frontend Skills
+            FullStack Skills
           </button>
         </section>
 
